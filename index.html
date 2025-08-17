@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisset Racing</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Lisset Racing</div>
+    <nav>
+      <ul>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h1>Arte que acelera tu imaginación</h1>
+  </section>
+
+  <!-- Galería -->
+  <section id="galeria">
+    <h2>🎨 Galería</h2>
+    <div class="grid">
+      <div class="item reveal from-left">
+        <img src="img/toyota.jpeg" alt="Toyota Corolla" class="modal-img">
+        <div class="info">
+          <h3>Toyota Corolla</h3>
+        </div>
+      </div>
+      <div class="item reveal from-right">
+        <img src="img/supra.jpeg" alt="Toyota Supra mk4" class="modal-img">
+        <div class="info">
+          <h3>Toyota Supra mk4</h3>
+        </div>
+      </div>
+      <div class="item reveal from-left">
+        <img src="img/camaro.jpeg" alt="Chevrolet Camaro SS" class="modal-img">
+        <div class="info">
+          <h3>Chevrolet Camaro SS</h3>
+        </div>
+      </div>
+      <div class="item reveal from-right">
+        <img src="img/civic.jpeg" alt="Honda Civic" class="modal-img">
+        <div class="info">
+          <h3>Honda Civic</h3>
+        </div>
+      </div>
+      <div class="item reveal from-left">
+        <img src="img/miata.jpeg" alt="Mazda Miata" class="modal-img">
+        <div class="info">
+          <h3>Mazda Miata</h3>
+        </div>
+      </div>
+      <div class="item reveal from-right">
+        <img src="img/nsx.jpeg" alt="Honda NSX" class="modal-img">
+        <div class="info">
+          <h3>Honda NSX</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-wrapper">
+    <img class="modal-content" id="imgModal">
+    <div id="caption"></div>
+  </div>
+</div>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p>Hola, soy Lisset y me apasiona crear arte con estilo racing. Cada dibujo que hago está lleno de velocidad, emoción y detalle. ¡Gracias por visitar mi mundo creativo!</p>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <a href="https://wa.me/8498545027?text=Hola!%20Quiero%20hablar%20contigo" target="_blank" class="btn-whatsapp">Escríbeme por WhatsApp</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Lisset Racing. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Scroll reveal
+    function reveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 150;
+        if (elementTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        } else {
+          reveals[i].classList.remove('active');
+        }
+      }
+    }
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+
+   window.onload = function() {
+  const modal = document.getElementById("myModal");
+  const modalImg = document.getElementById("imgModal");
+  const captionText = document.getElementById("caption");
+  const images = document.querySelectorAll('.modal-img');
+  const span = document.getElementsByClassName("close")[0];
+
+  images.forEach(img => {
+    img.onclick = function(){
+      modal.classList.add('show');   // mostrar modal
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+  });
+
+  span.onclick = function() { 
+    modal.classList.remove('show'); // cerrar modal
+  }
+
+  modal.onclick = function(event){
+    if(event.target == modal){
+      modal.classList.remove('show');
+    }
+  }
+}
+  </script>
+</body>
+</html>
