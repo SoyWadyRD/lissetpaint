@@ -3,21 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/lisset_logo_fav.ico" type="image/x-icon">
   <title>Lisset Racing</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div class="logo">Lisset Racing</div>
-    <nav>
-      <ul>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+    <div class="logo">
+  <img src="img/lisset_logo.jpg" alt="Lisset Racing Logo">
+  <span>Lisset Racing</span>
+</div>
+    <nav id="menu">
+  <ul>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="menu-btn" id="menuBtn">
+  <i class="fas fa-bars"></i>
+</div>
+
   </header>
 
   <!-- Banner -->
@@ -136,6 +147,31 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
+// ----- Menú hamburguesa -----
+  const menuBtn = document.getElementById("menuBtn");
+  const menu = document.getElementById("menu");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
+    menuBtn.querySelector("i").classList.toggle("fa-times");
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+      menuBtn.querySelector("i").classList.remove("fa-times");
+    });
+  });
   </script>
 </body>
 </html>
